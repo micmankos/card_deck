@@ -1,7 +1,7 @@
 # SG Card Deck
 Author: Michael Mankos
 
-This module implements a standard Poker-style deck of cards which can be used to implement a card game. 
+This projects implements a standard Poker-style deck of cards which can, in turn, be used to implement a card game. 
 
 ## Dev Environment
 
@@ -22,7 +22,7 @@ TODO: setup.py
 
 TODO: To run pylint...
 ## Usage
-There are two objects - a `Deck` object which contains a list of `Card` objects. Please refer to the `Card` class in `Card.py` to see the available class members. Usage of `Deck` is discussed in more detail below. This module is meant to be used as a basis for playing games such as Poker or BlackJack. The implementation of the Card values (i.e. 1 or 11 for an Ace in BlackJack) is left up to the discretion of the users of this module. Only basic functionality of a deck is provided, namely `deal_card()` and `shuffle()`. 
+There are two objects - a `Deck` object which contains a list of `Card` objects. Please refer to the `Card` class in `card.py` to see the available class members. Usage of `Deck` is discussed in more detail below. This module is meant to be used as a basis for playing games such as Poker or BlackJack. The implementation of the Card values (i.e. 1 or 11 for an Ace in BlackJack) is left up to the discretion of the users of this module. Only basic functionality of a deck is provided, namely `deal_card()` and `shuffle()`. 
 
 TODO: come back to this imports
 Install with
