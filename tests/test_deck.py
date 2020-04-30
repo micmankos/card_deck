@@ -48,14 +48,14 @@ class TestDeck:
         for i in range(52):
             deck.deal_card()
 
-        assert(desk.is_empty())
+        assert(deck.is_empty())
 
-    def test_deck_is_empty_is_false_on_deck_with_cards(self):
+    def test_deck_is_empty_false_on_deck_with_cards(self):
         deck = sg_deck.Deck()
 
         for i in range(52):
+            assert(deck.is_empty() == False)
             deck.deal_card()
-            assert(not desk.is_empty())
 
     def test_each_item_dealt_is_card_on_init(self):
         card_obj = sg_deck.card.Card
@@ -91,14 +91,40 @@ class TestDeck:
             c = deck.deal_card()
             assert(c.name != some_string)
 
-    def test_init_deck_has_52_cards_objects(self):
-        assert 0
+    def test_card_has_correct_attributes_on_init(self):
+        deck = sg_deck.Deck()
 
-    def test_card_has_correct_attributes(self):
-        assert 0
+        while not deck.is_empty():
+            c = deck.deal_card()
+            assert(hasattr(c, 'name'))
+            assert(hasattr(c, 'rank'))
+            assert(hasattr(c, 'suit'))
+
+    def test_card_has_correct_attributes_on_shuffle(self):
+        deck = sg_deck.Deck()
+
+        deck.shuffle()
+        while not deck.is_empty():
+            c = deck.deal_card()
+            assert(hasattr(c, 'name'))
+            assert(hasattr(c, 'rank'))
+            assert(hasattr(c, 'suit'))
         
     def test_card_attributes_are_strings(self):
-        assert 0
+        deck = sg_deck.Deck()
+
+        while not deck.is_empty():
+            c = deck.deal_card()
+            assert(isinstance(c.name, str))
+            assert(isinstance(c.rank, str))
+            assert(isinstance(c.suit, str))
+
+        deck.shuffle()
+        while not deck.is_empty():
+            c = deck.deal_card()
+            assert(isinstance(c.name, str))
+            assert(isinstance(c.rank, str))
+            assert(isinstance(c.suit, str))
         
     def test_init_deck_deals_all_poker_cards(self):
         assert 0

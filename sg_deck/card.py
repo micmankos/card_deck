@@ -6,7 +6,7 @@ class Card:
         '''
         Poker Card where suit and rank are represented as strings
         '''
-        self.suit = suit
-        self.rank = rank
+        self.suit = str(suit)
+        self.rank = str(rank)
         self.name = f"{rank} of {suit}"
         
