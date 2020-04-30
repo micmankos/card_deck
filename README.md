@@ -3,7 +3,7 @@ Author: Michael Mankos
 
 **This is a sample Python project that is meant to showcase my experience.**
 
-This projects implements a library for a standard Poker-style deck of cards which can, in turn, be used to implement a card game. 
+This projects implements a library for a standard Poker-style deck of 52 cards which can, in turn, be used to implement a card game. This deck does not include Jokers. 
 
 ## Dev Environment and Setup
 This section details the development environment and how to set it up. This project assumes knowledge of conda and pip. 

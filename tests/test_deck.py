@@ -13,7 +13,13 @@ CARDS = ['King of Diamonds', 'Queen of Diamonds', 'Jack of Diamonds', '10 of Dia
             'King of Hearts', 'Queen of Hearts', 'Jack of Hearts', '10 of Hearts', '9 of Hearts', '8 of Hearts', '7 of Hearts', '6 of Hearts', '5 of Hearts', '4 of Hearts', '3 of Hearts', '2 of Hearts', 'Ace of Hearts']
 
 class TestDeck:
+    '''
+    Methods to test different uses of a Deck object.
+    '''
     def test_can_deal_52_cards(self):
+        '''
+        A total of 52 cards can be dealt from a card.
+        '''
         deal_cnt = 0
         deck = sg_deck.Deck()
 
@@ -24,6 +30,9 @@ class TestDeck:
         assert(deal_cnt == 52)
 
     def test_get_53rd_card_fails(self):
+        '''
+        Dealing more than 52 cards should fail.
+        '''
         deck = sg_deck.Deck()
         with pytest.raises(IndexError):
             # deal 52 cards
@@ -34,6 +43,9 @@ class TestDeck:
             deck.deal_card()
 
     def test_deal_card_reduces_deck_cnt(self):
+        '''
+        Dealing a card reduces the number of cards in the deck.
+        '''
         deck_len = 52
         deck = sg_deck.Deck()
 
@@ -45,11 +57,17 @@ class TestDeck:
         assert(len(deck.deck) == deck_len)
 
     def test_shuffled_deck_has_52_cards(self):
+        '''
+        After shuffling, a deck should have 52 cards.
+        '''
         deck = sg_deck.Deck()
         deck.shuffle()
         assert(len(deck.deck) == 52)
 
     def test_deck_is_empty_after_52_cards_dealt(self):
+        '''
+        is_empty() should return True after all cards are dealth
+        '''
         deck = sg_deck.Deck()
 
         for _ in range(52):
@@ -58,6 +76,9 @@ class TestDeck:
         assert(deck.is_empty())
 
     def test_deck_is_empty_false_on_deck_with_cards(self):
+        '''
+        is_empty() should return True while there are cards left to be dealt
+        '''
         deck = sg_deck.Deck()
 
         for _ in range(52):
@@ -65,6 +86,9 @@ class TestDeck:
             deck.deal_card()
 
     def test_each_item_dealt_is_card_on_init(self):
+        '''
+        A deck should be made up of Card objects
+        '''
         card_obj = sg_deck.card.Card
         deck = sg_deck.Deck()
 
@@ -73,6 +97,9 @@ class TestDeck:
             assert(isinstance(card, card_obj))
 
     def test_each_item_dealt_is_card_on_shuffle(self):
+        '''
+        After a shuffle, a deck should be made up of card objects
+        '''
         card_obj = sg_deck.card.Card
         deck = sg_deck.Deck()
         deck.shuffle()
@@ -82,10 +109,17 @@ class TestDeck:
             assert(isinstance(card, card_obj))
 
     def test_init_deck_has_52_cards(self):
+        '''
+        On intialization, a deck should have 52 cards.
+        '''
         deck = sg_deck.Deck()
         assert(len(deck.deck) == 52)
 
     def test_shuffled_fixes_modified_card_objects(self):
+        '''
+        If a user attempts to change the state of a Card object,
+        this change should not carry over when the deck is reshuffled.
+        '''
         deck = sg_deck.Deck()
 
         some_string = "I wrote on this card"
@@ -99,6 +133,9 @@ class TestDeck:
             assert(card.name != some_string)
 
     def test_card_has_correct_attributes_on_init(self):
+        '''
+        A deck should have valid cards with name, rank, and suit on init.
+        '''
         deck = sg_deck.Deck()
 
         while not deck.is_empty():
@@ -108,6 +145,9 @@ class TestDeck:
             assert(hasattr(card, 'suit'))
 
     def test_card_has_correct_attributes_on_shuffle(self):
+        '''
+        A deck should have valid cards with name, rank, and suit on shuffle.
+        '''
         deck = sg_deck.Deck()
 
         deck.shuffle()
@@ -118,6 +158,9 @@ class TestDeck:
             assert(hasattr(card, 'suit'))
 
     def test_card_attributes_are_strings(self):
+        '''
+        The three attributes of a deck should be strings on init nad shuffle.
+        '''
         deck = sg_deck.Deck()
 
         while not deck.is_empty():
@@ -134,6 +177,9 @@ class TestDeck:
             assert(isinstance(card.suit, str))
 
     def test_card_name_matches_rank_and_suit(self):
+        '''
+        The name of a card should include its rank and suit.
+        '''
         deck = sg_deck.Deck()
         while not deck.is_empty():
             card = deck.deal_card()
@@ -147,6 +193,10 @@ class TestDeck:
             assert(card.name == rank_and_suit)
 
     def test_init_deck_deals_all_poker_cards(self):
+        '''
+        Ensures that all the 52 possible Poker cards are dealt.
+        Note there are no Jokers.
+        '''
         card_set = set()
         for card in CARDS:
             card_set.add(card)
@@ -160,6 +210,9 @@ class TestDeck:
         assert(len(card_set) == 0)
 
     def test_shuffled_deck_deals_all_poker_cards(self):
+        '''
+        After shuffling, this ensures that all the 52 possible Poker cards are dealt.
+        '''
         card_set = set()
         for card in CARDS:
             card_set.add(card)
