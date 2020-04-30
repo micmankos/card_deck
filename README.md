@@ -107,3 +107,9 @@ while not deck.is_empty():
   # do something
 ```
 ## Build
+We discuss how to package and push this code to PyPI. Do note that, as this is a sample project, we use PyPI's testing server. From [here](https://packaging.python.org/guides/using-testpypi/): 
+```
+TestPyPI is a separate instance of the Python Package Index (PyPI) that allows you to try out the distribution tools and process without worrying about affecting the real index.
+```
+
+TODO: build project and verify it works
