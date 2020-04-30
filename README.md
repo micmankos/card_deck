@@ -1,9 +1,12 @@
 # SG Card Deck
 Author: Michael Mankos
 
-This projects implements a standard Poker-style deck of cards which can, in turn, be used to implement a card game. 
+**This is a sample Python project that is meant to showcase my experience.**
+
+This projects implements a library for a standard Poker-style deck of cards which can, in turn, be used to implement a card game. 
 
 ## Dev Environment
+This section details the development environment and how to set it up. 
 
 TODO: mention pep8 style
 
@@ -21,7 +24,10 @@ TODO: requirements.txt
 TODO: setup.py
 
 TODO: To run pylint...
+
 ## Usage
+This section details some usage examples of the library. 
+
 There are two objects - a `Deck` object which contains a list of `Card` objects. Please refer to the `Card` class in `card.py` to see the available class members. Usage of `Deck` is discussed in more detail below. This module is meant to be used as a basis for playing games such as Poker or BlackJack. The implementation of the Card values (i.e. 1 or 11 for an Ace in BlackJack) is left up to the discretion of the users of this module. Only basic functionality of a deck is provided, namely `deal_card()` and `shuffle()`. 
 
 TODO: come back to this imports
@@ -107,7 +113,9 @@ while not deck.is_empty():
   # do something
 ```
 ## Build
-We discuss how to package and push this code to PyPI. Do note that, as this is a sample project, we use PyPI's testing server. From [here](https://packaging.python.org/guides/using-testpypi/): 
+This example discusses how to package and push this code to PyPI. 
+
+Do note that, as this is a sample project, we use PyPI's testing server. From [here](https://packaging.python.org/guides/using-testpypi/): 
 ```
 TestPyPI is a separate instance of the Python Package Index (PyPI) that allows you to try out the distribution tools and process without worrying about affecting the real index.
 ```

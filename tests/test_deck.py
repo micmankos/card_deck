@@ -27,7 +27,15 @@ class TestDeck:
             c = deck.deal_card()
 
     def test_deal_card_reduces_deck_cnt(self):
-        assert 0
+        deck_len = 52
+        deck = sg_deck.Deck()
+
+        while not deck.is_empty():
+            assert(len(deck.deck) == deck_len)
+            c = deck.deal_card()
+            deck_len -= 1
+
+        assert(len(deck.deck) == deck_len)
 
     def test_shuffled_deck_has_52_cards(self):
         assert 0
