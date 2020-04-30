@@ -10,7 +10,7 @@ This section details the development environment and how to set it up. This proj
 
 The project uses conda 4.5.4 and python 3.6.5. Testing and linting are done with pytest and pylint respectively. 
 
-Make sure to activate your conda environment for this project. Installs conda dependencies followed by pip dependencies
+Make sure to activate your conda environment for this project. Install conda dependencies followed by pip dependencies
 ```sh
 conda install --file conda_req.txt
 pip install -r requirements.txt
@@ -32,7 +32,7 @@ pylint tests
 ## Usage
 This section details some usage examples of the library. 
 
-There are two objects - a `Deck` object which contains a list of `Card` objects. Please refer to the `Card` class in `card.py` to see the available class members. Usage of `Deck` is discussed in more detail below. This module is meant to be used as a basis for playing games such as Poker or BlackJack. The implementation of the Card values (i.e. 1 or 11 for an Ace in BlackJack) is left up to the discretion of the users of this module. Only basic functionality of a deck is provided, namely `deal_card()` and `shuffle()`. 
+There are two classes - a `Deck` object which contains a list of `Card` objects. Please refer to the `Card` class in `card.py` to see the available class members. Usage of `Deck` is discussed in more detail below. This module is meant to be used as a basis for playing games such as Poker or BlackJack. The implementation of the Card values (i.e. 1 or 11 for an Ace in BlackJack) is left up to the discretion of the users of this module. Only basic functionality of a deck is provided, namely `deal_card()` and `shuffle()`. 
 
 To `pip install`, the package must first be pushed up to PyPI. As this is a sample repo, test PyPI is used. Please refer to the `Build` section below to push and build to PyPI before performing a `pip install`. 
 
@@ -44,8 +44,8 @@ To instantiate a deck and deal the cards
 ```py
 deck = sg_deck.Deck()
 while not deck.is_empty():
-    card= deck.deal_card()
-    print(f"You have been dealt the {c.rank} of {c.suit}")    
+    card = deck.deal_card()
+    print(f"You have been dealt the {card.rank} of {card.suit}")    
 ```
 Notice the usage of `c.rank` and `c.suit`. The above code will print.
 ```
@@ -71,8 +71,8 @@ Alternatively, we can reference the `rank` and `suit` through `name`
 ```py
 deck = sg_deck.Deck()
 while not deck.is_empty():
-    card= deck.deal_card()
-    print(f"You have been dealt the {c.name}")       
+    card = deck.deal_card()
+    print(f"You have been dealt the {card.name}")       
 ```
 and we get similar output
 ```
@@ -86,8 +86,8 @@ Instantiating the deck without calling `shuffle()` simply created an ordered lis
 ```py
 deck.shuffle()
 while not deck.is_empty():
-    card= deck.deal_card()
-    print(f"You have been dealt the {c.rank} of {c.suit}")    
+    card = deck.deal_card()
+    print(f"You have been dealt the {card.rank} of {card.suit}")    
 ```
 
 ```

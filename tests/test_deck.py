@@ -31,7 +31,7 @@ class TestDeck:
                 deck.deal_card()
 
             # fail at 53rd card
-            card = deck.deal_card()
+            deck.deal_card()
 
     def test_deal_card_reduces_deck_cnt(self):
         deck_len = 52
