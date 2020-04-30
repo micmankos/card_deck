@@ -121,9 +121,30 @@ TestPyPI is a separate instance of the Python Package Index (PyPI) that allows y
 ```
 Specifically, I followed the instructions listed by the [Python docs](https://packaging.python.org/tutorials/packaging-projects/#generating-distribution-archives).
 ```sh
-python3 -m pip install --user --upgrade setuptools wheel
+# make sure latest build tools are installed
+python -m pip install --user --upgrade setuptools wheel
 
-python3 setup.py sdist bdist_wheel
+# create distribution package that you can upload
+python setup.py sdist bdist_wheel
 ```
 
-TODO: build project and verify it works
+You will have to create an account and retrieve an API token to [upload to test PyPI](https://packaging.python.org/tutorials/packaging-projects/#uploading-the-distribution-archives). Generate a token and add it to your `$HOME/.pypirc` file as seen [here](https://packaging.python.org/guides/distributing-packages-using-setuptools/#create-an-account). 
+
+Then continue with the build commands:
+```sh
+# install twine
+python -m pip install --user --upgrade twine
+
+# upload package to TESTPYPI
+python -m twine upload --repository testpypi dist/*
+```
+
+You should now be able to install the pip package with
+```sh
+# the general command
+python -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
+
+# specific to me (note that the last argument here is the `name` param in the setuptools.setup tuple in setup.py)
+# also note that test pypi constantly refreshes so the package you uploaded may be deleted fairly quickly
+python -m pip install --index-url https://test.pypi.org/simple/ --no-deps sg_deck-micmankos
+```
