@@ -44,7 +44,7 @@ To instantiate a deck and deal the cards
 ```py
 deck = sg_deck.Deck()
 while not deck.is_empty():
-    c = deck.deal_card()
+    card= deck.deal_card()
     print(f"You have been dealt the {c.rank} of {c.suit}")    
 ```
 Notice the usage of `c.rank` and `c.suit`. The above code will print.
@@ -71,7 +71,7 @@ Alternatively, we can reference the `rank` and `suit` through `name`
 ```py
 deck = sg_deck.Deck()
 while not deck.is_empty():
-    c = deck.deal_card()
+    card= deck.deal_card()
     print(f"You have been dealt the {c.name}")       
 ```
 and we get similar output
@@ -86,7 +86,7 @@ Instantiating the deck without calling `shuffle()` simply created an ordered lis
 ```py
 deck.shuffle()
 while not deck.is_empty():
-    c = deck.deal_card()
+    card= deck.deal_card()
     print(f"You have been dealt the {c.rank} of {c.suit}")    
 ```
 
