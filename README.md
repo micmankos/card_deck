@@ -5,8 +5,8 @@ Author: Michael Mankos
 
 This projects implements a library for a standard Poker-style deck of cards which can, in turn, be used to implement a card game. 
 
-## Dev Environment
-This section details the development environment and how to set it up. 
+## Dev Environment and Setup
+This section details the development environment and how to set it up. This project assumes knowledge of conda and pip. 
 
 TODO: mention pep8 style
 
@@ -14,8 +14,14 @@ TODO: mention conda
 
 Built with Conda and Python 3.6.5. Testing and linting are done with pytest and pylint respectively. 
 
-From the top-level directory of the repo, run tests with
+In your conda enviro conda dependencies followed by pip dependencies
+```sh
+conda install --file conda_req.txt
+pip install -r requirements.txt
 ```
+
+From the top-level directory of the repo, run tests with
+```sh
 python -m pytest tests/
 ```
 
