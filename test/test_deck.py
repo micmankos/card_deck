@@ -25,3 +25,7 @@ class TestDeck:
 
     def test_init_deck_has_52_cards(self):
         assert 0
+
+    def test_card_has_correct_attributes(self):
+        assert 0
+        
