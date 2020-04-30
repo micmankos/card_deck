@@ -13,7 +13,11 @@ class Deck:
     # pylint: disable=trailing-whitespace
     def __init__(self):
         '''
-        Creates a deck of cards and private data structures used for reshuffling
+        Creates a deck of cards and private data structures used for
+        future calls to shuffle. This Deck object initially has 52 
+        cards in order. Calling deal_card() will return a card up to 52 times
+        and then raise an IndexError until shuffle() is called. From then,
+        deal_card() can be called another 52 times. 
         '''
         self._cards = []
         self.deck = []
@@ -48,7 +52,9 @@ class Deck:
         
     def shuffle(self):
         '''
-        Shuffle returns no value, but results in the cards in the deck being randomly permuted. 
+        Shuffle returns no value, but results in the cards in the deck being randomly permuted.
+        This method uses internal private data structures to recreate 52 Card objects which
+        can be used for future calls to deal_card().  
         '''
         
         # reintialize Cards in case references to Card objects were modified
@@ -79,7 +85,9 @@ class Deck:
         
     def deal_card(self):
         '''
-        Returns one card from the deck to the caller. Else error is raised.
+        Returns one card from the deck to the caller up to 52 times in 
+        one initialize or shuffle. 
+        Else error is raised.
         '''
         if len(self.deck) > 0:
             return self.deck.pop(-1)
