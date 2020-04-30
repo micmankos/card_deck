@@ -119,5 +119,11 @@ Do note that, as this is a sample project, we use PyPI's testing server. From [h
 ```
 TestPyPI is a separate instance of the Python Package Index (PyPI) that allows you to try out the distribution tools and process without worrying about affecting the real index.
 ```
+Specifically, I followed the instructions listed by the [Python docs](https://packaging.python.org/tutorials/packaging-projects/#generating-distribution-archives).
+```sh
+python3 -m pip install --user --upgrade setuptools wheel
+
+python3 setup.py sdist bdist_wheel
+```
 
 TODO: build project and verify it works
