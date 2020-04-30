@@ -8,41 +8,33 @@ This projects implements a library for a standard Poker-style deck of cards whic
 ## Dev Environment and Setup
 This section details the development environment and how to set it up. This project assumes knowledge of conda and pip. 
 
-TODO: mention pep8 style
+The project uses conda 4.5.4 and python 3.6.5. Testing and linting are done with pytest and pylint respectively. 
 
-TODO: mention conda
-
-Built with Conda and Python 3.6.5. Testing and linting are done with pytest and pylint respectively. 
-
-In your conda enviro conda dependencies followed by pip dependencies
+Make sure to activate your conda environment for this project. Installs conda dependencies followed by pip dependencies
 ```sh
 conda install --file conda_req.txt
 pip install -r requirements.txt
 ```
 
-From the top-level directory of the repo, run tests with
+From the top-level directory of the repo, run tests 
 ```sh
 python -m pytest tests/
 ```
+This repo follows the coding guidelines from the standard configuration for [pylint](https://docs.pylint.org/en/1.6.0/intro.html) which references pep 8. Run pylint with below. Please make sure your pylint score is >= 9 before commiting to dev/master.
+```
+pylint <package or module>
 
-TODO: requirements.txt
-
-TODO: setup.py
-
-TODO: To run pylint...
+# specifically for our repo
+pylint sg_deck
+pylint tests
+```
 
 ## Usage
 This section details some usage examples of the library. 
 
 There are two objects - a `Deck` object which contains a list of `Card` objects. Please refer to the `Card` class in `card.py` to see the available class members. Usage of `Deck` is discussed in more detail below. This module is meant to be used as a basis for playing games such as Poker or BlackJack. The implementation of the Card values (i.e. 1 or 11 for an Ace in BlackJack) is left up to the discretion of the users of this module. Only basic functionality of a deck is provided, namely `deal_card()` and `shuffle()`. 
 
-TODO: come back to this imports
-Install with
-```py
-# Make sure that sg_deck is pushed to PyPI and that pip points at the correct PyPI (i.e. PyPI test server)
-# See the "Build" section for more details
-pip install sg_deck
-```
+To `pip install`, the package must first be pushed up to PyPI. As this is a sample repo, test PyPI is used. Please refer to the `Build` section below to push and build to PyPI before performing a `pip install`. 
 
 Import with
 ```py
@@ -150,7 +142,7 @@ You should now be able to install the pip package with
 # the general command
 python -m pip install --index-url https://test.pypi.org/simple/ --no-deps example-pkg-YOUR-USERNAME-HERE
 
-# specific to me (note that the last argument here is the `name` param in the setuptools.setup tuple in setup.py)
+# as an example, below is specific to me (note that the last argument here is the `name` param in the setuptools.setup tuple in setup.py)
 # also note that test pypi constantly refreshes so the package you uploaded may be deleted fairly quickly
 python -m pip install --index-url https://test.pypi.org/simple/ --no-deps sg_deck-micmankos
 ```
