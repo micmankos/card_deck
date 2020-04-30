@@ -1,3 +1,5 @@
+import sg_deck
+
 class TestDeck:
     def test_get_53rd_card(self):
         assert 0

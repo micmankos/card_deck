@@ -7,11 +7,13 @@ This module implements a standard Poker-style deck of cards which can be used to
 
 TODO: mention pep8 style
 
-Built with Python 3.6.5, pytest, and pylint. 
+TODO: mention conda
+
+Built with Conda and Python 3.6.5. Testing and linting are done with pytest and pylint respectively. 
 
 From the top-level directory of the repo, run tests with
 ```
-pytest
+python -m pytest tests/
 ```
 
 TODO: requirements.txt
