@@ -3,9 +3,9 @@ Author: Michael Mankos
 
 **This is a sample Python project that is meant to showcase my experience.**
 
-This projects implements a library for a standard Poker-style deck of 52 cards which can, in turn, be used to implement a card game. This deck does not include Jokers. 
+This projects implements a library for a standard Poker-style deck of 52 cards which, in turn, can be used to implement a card game. This deck does not include Jokers. 
 
-## Dev Environment and Setup
+## Development Environment and Setup
 This section details the development environment and how to set it up. This project assumes knowledge of conda and pip. 
 
 The project uses conda 4.5.4 and python 3.6.5. Testing and linting are done with pytest and pylint respectively. 
@@ -16,11 +16,11 @@ conda install --file conda_req.txt
 pip install -r requirements.txt
 ```
 
-From the top-level directory of the repo, run tests 
+From the top-level directory of the repo, run tests with
 ```sh
 python -m pytest tests/
 ```
-This repo follows the coding guidelines from the standard configuration for [pylint](https://docs.pylint.org/en/1.6.0/intro.html) which references pep 8. Run pylint with below. Please make sure your pylint score is >= 9 before commiting to dev/master.
+This repo follows the coding guidelines from the standard configuration for [pylint](https://docs.pylint.org/en/1.6.0/intro.html) which references PEP 8. Run pylint with below. Please make sure your pylint score is >= 9 before commiting to dev/master.
 ```
 pylint <package or module>
 
@@ -32,11 +32,11 @@ pylint tests
 ## Usage
 This section details some usage examples of the library. 
 
-There are two classes - a `Deck` object which contains a list of `Card` objects. Please refer to the `Card` class in `card.py` to see the available class members. Usage of `Deck` is discussed in more detail below. This module is meant to be used as a basis for playing games such as Poker or BlackJack. The implementation of the Card values (i.e. 1 or 11 for an Ace in BlackJack) is left up to the discretion of the users of this module. Only basic functionality of a deck is provided, namely `deal_card()` and `shuffle()`. 
+There are two classes - a `Deck` class which contains a list of `Card` objects. Please refer to the `Card` class in `card.py` to see the available class members. Usage of `Deck` is discussed in more detail below. This module is meant to be used as a basis for playing games such as Poker or BlackJack. The implementation of the Card values (i.e. 1 or 11 for an Ace in BlackJack) is left up to the discretion of the users of this library. Only basic functionality of a deck is provided, namely `deal_card()`, `shuffle()`, and `is_empty()`. 
 
 To `pip install`, the package must first be pushed up to PyPI. As this is a sample repo, test PyPI is used. Please refer to the `Build` section below to push and build to PyPI before performing a `pip install`. 
 
-Import with
+After installing, import with
 ```py
 import sg_deck
 ```
@@ -47,7 +47,7 @@ while not deck.is_empty():
     card = deck.deal_card()
     print(f"You have been dealt the {card.rank} of {card.suit}")    
 ```
-Notice the usage of `c.rank` and `c.suit`. The above code will print.
+Notice the usage of `card.rank` and `card.suit`. The above code will print.
 ```
 You have been dealt the King of Diamonds
 You have been dealt the Queen of Diamonds
@@ -111,12 +111,13 @@ while not deck.is_empty():
   # do something
 ```
 ## Build
-This example discusses how to package and push this code to PyPI. 
+This section discusses how to package and push this code to PyPI. 
 
 Do note that, as this is a sample project, we use PyPI's testing server. From [here](https://packaging.python.org/guides/using-testpypi/): 
 "
 TestPyPI is a separate instance of the Python Package Index (PyPI) that allows you to try out the distribution tools and process without worrying about affecting the real index.
 "
+
 Specifically, I followed the instructions listed by the [Python docs](https://packaging.python.org/tutorials/packaging-projects/#generating-distribution-archives).
 ```sh
 # make sure latest build tools are installed
@@ -133,7 +134,7 @@ Then continue with the build commands:
 # install twine
 python -m pip install --user --upgrade twine
 
-# upload package to TESTPYPI
+# upload package to test PyPI
 python -m twine upload --repository testpypi dist/*
 ```
 
