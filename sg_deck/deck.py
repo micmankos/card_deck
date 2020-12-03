@@ -11,7 +11,7 @@ class Deck:
     Provides basic functionality of a card deck
     '''
     # pylint: disable=trailing-whitespace
-    def __init__(self):
+    def __init__(self, seed=2):
         '''
         Creates a deck of cards and private data structures used for
         future calls to shuffle. This Deck object initially has 52 
@@ -21,6 +21,7 @@ class Deck:
         '''
         self._cards = []
         self.deck = []
+        random.seed(a=seed)
 
         # dictionaries to easily retrieve common card info
         self._num_to_suit = dict()
