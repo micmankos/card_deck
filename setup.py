@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="sg_deck-micmankos", # Replace with your own username
-    version="1.0.0",
+    version="1.0.1",
     author="Michael Mankos",
     author_email="micmankos@gmail.com",
     description="A small implementation of a card deck",
