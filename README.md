@@ -1,4 +1,4 @@
-# SG Card Deck
+# Card Deck
 Author: Michael Mankos
 
 **This is a sample Python project that is meant to showcase my experience.**
